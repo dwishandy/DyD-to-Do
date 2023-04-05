@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>To-Do</title>
+    <link href="dist/output.css" rel="stylesheet">
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+
+<body class="dark:bg-dark flex flex-col min-h-screen">
+
+    <!-- header section start -->
+    <header class="py-4 w-full top-0 bg-primary absolute">
+        <div class="container">
+            <div class="flex item-center justify-between">
+                <div class="px-4 md:pl-10">
+                    <h1 class="font-zenDots text-md font-extrabold text-light md:text-xl lg:text-2xl"><span
+                            class="bg-slate-800 dark:bg-light dark:text-dark px-3 pt-1 pb-2 rounded-lg">DyD</span>
+                        to-Do</h1>
+                </div>
+                <div class="px-6 md:pr-14">
+                    <div class="flex items-center">
+                        <span><img src="dist/img/sun.png" id="icon" class="w-[20px] md:w-[30px]"></span>
+                        <input type="checkbox" class="hidden" id="dark-toggle">
+                        <label for="dark-toggle">
+                            <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1 mx-1">
+                                <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300"></div>
+                            </div>
+                        </label>
+                        <span><img src="dist/img/moon.png" id="icon" class="w-[21px] md:w-[31px]"></span>
+                    </div>
+                </div>
+
+            </div>
+    </header>
+    <!-- header section end -->
+
+
+    <!-- main section start -->
+    <section class="my-28">
+        <div class="container">
+            <div class="max-w-xl mx-auto text-center font-exo">
+
+                <div class="w-full">
+                    <p class="italic font-medium block mx-auto text-dark dark:text-light">Let's go! Make your plan
+                        now<span class="not-italic">😊</span></p>
+                </div>
+
+                <div class="w-full mt-4 mb-8 px-3">
+                    <form action="" method="post">
+                        <input type="text" name=""
+                            class=" bg-light dark:bg-slate-800 w-[230px] text-dark py-2 px-2 rounded-md focus:outline-none focus:ring-1 capitalize placeholder:text-dark dark:placeholder:text-light"
+                            placeholder="Insert your plan">
+
+                        <button
+                            class="text-base font-medium text-white bg-primary py-2 px-3 rounded-lg hover:opacity-80 hover:shadow-lg transition duration-500 capitalize">add</button>
+                    </form>
+                </div>
+
+                <div class="px-6">
+                    <div class="w-full bg-light dark:bg-slate-800 rounded-lg px-6 pt-6 pb-4 capitalize">
+                        <div class="flex justify-between mb-4">
+                            <p id="text" class="font-medium text-md text-slate-900 dark:text-light">Get Up</p>
+
+                            <ul class="text-slate-500">
+                                <li class="inline-block ml-3">
+                                    <p><input type="checkbox" id="toggle"
+                                            class="cursor-pointer transition duration-500 ease-in-out">
+                                    </p>
+                                </li>
+
+                                <li class="inline-block ml-3">
+                                    <i id="myButton"
+                                        class="fas fa-pen text-xs cursor-pointer hover:text-dark dark:hover:text-light transition duration-500 ease-in-out"></i>
+
+                                    <div id="myContent"
+                                        class="w-[250px] justify-center left-1/2 -translate-x-1/2 absolute  top-1/4 bg-[#8A2BE2] rounded-lg md:w-[370px] hidden">
+
+                                        <div class="absolute right-6 top-4">
+                                            <p class="cursor-pointer font-extrabold text-slate-200 hover:text-pink-700"
+                                                id="close">X</p>
+                                        </div>
+
+                                        <div class="text-center md:text-justify">
+                                            <div class="mt-20 mb-10 px-6">
+                                                <form action="" method="post">
+                                                    <input type="text" name=""
+                                                        class=" bg-slate-300 w-[200px] text-dark py-2 px-2 rounded-md focus:outline-none focus:ring-1 capitalize placeholder:text-[#151515] mb-6 md:w-[250px]"
+                                                        placeholder="edit your plan">
+
+                                                    <button id="button"
+                                                        class="text-base font-medium text-white bg-[#151515] py-2 px-3 rounded-lg hover:opacity-80 hover:shadow-lg transition duration-500 capitalize">edit</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="inline-block ml-3 cursor-pointer">
+                                    <p class="font-semibold hover:text-pink-800 transition duration-500 ease-in-out">X
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="flex justify-between mb-4">
+                            <p id="text" class="font-medium text-md text-slate-900 dark:text-light">Bath</p>
+
+                            <ul class="text-slate-500">
+                                <li class="inline-block ml-3">
+                                    <p><input type="checkbox" id="toggle"
+                                            class="cursor-pointer transition duration-500 ease-in-out">
+                                    </p>
+                                </li>
+
+                                <li class="inline-block ml-3">
+                                    <i id="myButton"
+                                        class="fas fa-pen text-xs cursor-pointer hover:text-dark dark:hover:text-light transition duration-500 ease-in-out"></i>
+
+                                    <div id="myContent"
+                                        class="w-[250px] justify-center left-1/2 -translate-x-1/2 absolute  top-1/4 bg-[#8A2BE2] rounded-lg md:w-[370px] hidden">
+
+                                        <div class="absolute right-6 top-4">
+                                            <p class="cursor-pointer font-extrabold text-slate-200 hover:text-pink-700"
+                                                id="close">X</p>
+                                        </div>
+
+                                        <div class="text-center md:text-justify">
+                                            <div class="mt-20 mb-10 px-6">
+                                                <form action="" method="post">
+                                                    <input type="text" name=""
+                                                        class=" bg-slate-300 w-[200px] text-dark py-2 px-2 rounded-md focus:outline-none focus:ring-1 capitalize placeholder:text-[#151515] mb-6 md:w-[250px]"
+                                                        placeholder="edit your plan">
+
+                                                    <button id="button"
+                                                        class="text-base font-medium text-white bg-[#151515] py-2 px-3 rounded-lg hover:opacity-80 hover:shadow-lg transition duration-500 capitalize">edit</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="inline-block ml-3 cursor-pointer">
+                                    <p class="font-semibold hover:text-pink-800 transition duration-500 ease-in-out">X
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- main section end -->
+
+    <!-- footer start -->
+    <footer class="bg-primary bottom-0 w-full py-4 mt-auto">
+        <div class="container">
+            <div class="flex flex-wrap justify-center text-light">
+                <p class="text-xs">made with ❤️ by <a href="https://instagram.com/firshndydw67_" target="_blank"
+                        class="animate-pulse">firshndydw67_</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+
+
+
+    <script src="dist/js/script.js"></script>
+</body>
+
+</html>

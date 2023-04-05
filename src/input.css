@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-green {
+    color: #09930c;
+}
+
+.dark {
+    color: #09930c;
+}
+
+#dark-toggle:checked ~ label div.toggle-circle {
+    @apply translate-x-3;
+}
